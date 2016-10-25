@@ -2,9 +2,9 @@ FROM ubuntu:16.04
 MAINTAINER Przemek Szalko <przemek@mobtitude.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y pptpd 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y iptables
+RUN sudo apt-get update
+RUN sudo apt-get install -y pptpd 
+RUN sudo apt-get install -y iptables
 
 COPY ./etc/pptpd.conf /etc/pptpd.conf
 COPY ./etc/ppp/pptpd-options /etc/ppp/pptpd-options
