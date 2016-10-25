@@ -3,8 +3,8 @@ MAINTAINER Przemek Szalko <przemek@mobtitude.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
-RUN apt-get install -y pptpd 
-RUN apt-get install -y iptables
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y pptpd 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y iptables
 
 COPY ./etc/pptpd.conf /etc/pptpd.conf
 COPY ./etc/ppp/pptpd-options /etc/ppp/pptpd-options
