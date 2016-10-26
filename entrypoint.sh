@@ -3,7 +3,8 @@
 set -e
 
 # enable IP forwarding
-sudo sysctl -w net.ipv4.ip_forward=1
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sysctl -p
 
 # configure firewall
 sudo iptables -t nat -A POSTROUTING -s 10.99.99.0/24 ! -d 10.99.99.0/24 -j MASQUERADE
